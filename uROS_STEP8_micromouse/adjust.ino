@@ -169,7 +169,7 @@ unsigned char execByModeAdjust(unsigned char mode)
       viewAdc();
       break;
     case 2:
-      straightCheck(5);
+      straightCheck(3);
       break;
 
     case 3:

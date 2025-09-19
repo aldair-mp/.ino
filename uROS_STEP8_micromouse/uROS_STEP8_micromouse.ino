@@ -1,6 +1,6 @@
 // Copyright 2023 RT Corporation
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License"); 
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -39,11 +39,11 @@ WiFiUDP udp;//Se crea un objeto UDP que permite enviar paquetes de datos por la 
 const int udpPort = 12345;//el puerto al que enviarás los datos
 const char* pcIp = "192.168.137.55";//direccion ip del computador*/
 
-const char* ssid = "MORA P";
-const char* password = "2025mora";
+const char* ssid = "mouser";
+const char* password = "mouser123";
 WiFiUDP udp;
 const int udpPort = 12345;
-const char* pcIp = "192.168.1.41";
+const char* pcIp = "192.168.0.100";
 
 void connectToWiFi() {
   WiFi.begin(ssid, password);
@@ -123,7 +123,9 @@ void sendStepsMap() {
 void setup()
 {
   Serial.begin(115200);
-  connectToWiFi();
+  //PARA QUE EL ROBOT NO SE CONECTE A LA RED WIFI, Y PUEDE HACER SU OPERACIONES
+  //SIN PROBELA, SE DEBE ELIMINAR O COMENTAR ESTA PARTE (LINEA 128 A 139)
+  /*connectToWiFi();
   udp.begin(udpPort);  // Inicializa UDP
 
   xTaskCreatePinnedToCore(
@@ -134,7 +136,7 @@ void setup()
     1,                // prioridad
     NULL,             // handle de tarea
     1                 // core (1 para no bloquear lógica principal)
-  );
+  );*/
 
   if (!SPIFFS.begin(true)) {
     Serial.println("❌ Error al montar SPIFFS");
